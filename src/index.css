@@ -1,3 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 — single import */
+@import "tailwindcss";
+
+/* Optional: your fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inder&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jomolhari&display=swap");
+
+/* v4 theming: tokens map directly to utilities (text-brand, bg-brand, font-inder, etc.) */
+@theme {
+  --color-brand: #3c0a4c;
+  --color-graytext: #4b4a4a;
+  --color-dark: #0b0b0b;
+
+  --font-inder: "Inder", sans-serif;
+  --font-jomolhari: "Jomolhari", serif;
+  /* If you actually have this font locally/served, keep it—otherwise it’ll fall back */
+  --font-astro: "a Astro Space", sans-serif;
+}
+
+/* Kill default white gap at top and keep the global black background */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+  color-scheme: dark;
+}

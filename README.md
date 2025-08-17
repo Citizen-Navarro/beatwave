@@ -1,12 +1,20 @@
-# React + Vite
+BeatWave
+BeatWave is a sleek, modern music player built with React and Tailwind CSS, powered by the Deezer API.
+It lets you search, discover, and play music with ease — whether you’re after trending artists, classic hits, or hidden gems.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Designed with a responsive UI for both desktop and mobile, BeatWave delivers a smooth listening experience and a clean, minimalist design.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Features
+🔍 Search for tracks, albums, and artists using Deezer's API
+🎧 Listen to 30-second previews of your favorite songs
+📱 Responsive design for desktop, tablet, and mobile
+🎨 Modern UI built with Tailwind CSS
+🎼 Displays track details: title, artist, album, and cover art
+Tech Stack
+React (Vite)
+Tailwind CSS
+Deezer API
+HTML5 Audio
+Getting Started
+Clone the repository
+git clone https://github.com/Citizen-Navarro/beatwave.git
