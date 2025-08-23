@@ -6,19 +6,21 @@ import FeatureCard from "./FeatureCard";
 export default function LandingPage() {
   return (
     <div
-      className="min-h-screen w-full bg-black bg-cover bg-center bg-no-repeat relative"
+      className="min-h-screen w-full relative bg-black bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: "url('/black-headphones.jpg')" }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-      {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col">
-        {/* Navbar */}
+      {/* Navbar */}
+      <div className="fixed top-0 left-0 w-full z-20">
         <Navbar />
+      </div>
 
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col pt-24 sm:pt-28 md:pt-32">
         {/* Hero Section */}
-        <div className="flex flex-col items-center mt-8 sm:mt-12 px-4 sm:px-6 md:px-12">
+        <div className="flex flex-col items-center px-4 sm:px-6 md:px-12">
           <HeroSection />
         </div>
 

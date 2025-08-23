@@ -1,73 +1,60 @@
-// src/components/Playlist.jsx
 import React from "react";
 import Navbar from "./Navbar";
 
-const playlists = [
-  { name: "Chill Vibes", tracks: "32 Tracks", image: "/chill.jpg" },
-  { name: "Workout Pump", tracks: "24 Tracks", image: "/workout.jpg" },
-  { name: "Afrobeats Party", tracks: "18 Tracks", image: "/afrobeats.jpg" },
-  { name: "Late Night Jazz", tracks: "20 Tracks", image: "/jazz.jpg" },
-];
+const Playlist = () => {
+  const playlists = [
+    { id: 1, name: "Lo-Fi Vibes", description: "Chill beats to relax/study", image: "/images/lofi.jpg" },
+    { id: 2, name: "Workout Pump", description: "Energy-packed bangers", image: "/images/workout.jpg" },
+    { id: 3, name: "Hip-Hop Classics", description: "Golden era hip-hop hits", image: "/images/hiphop.jpg" },
+  ];
 
-export default function Playlist() {
   return (
-    <div className="relative w-full min-h-screen bg-black">
-      {/* Background */}
+    <div className="min-h-screen w-full relative bg-black">
+      {/* Black headphones background */}
       <div
-        className="absolute inset-0 bg-black bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 opacity-100"
         style={{ backgroundImage: "url('/black-headphones.jpg')" }}
       ></div>
+      <div className="absolute inset-0 bg-black/50 z-0"></div>
 
-      {/* Navbar */}
-      <div className="relative z-10">
-        <Navbar />
-      </div>
+      {/* Navbar (fixed) */}
+      <Navbar />
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center px-4 sm:px-8 md:px-12 pt-24 sm:pt-28 md:pt-32 pb-16">
-        {/* Page Title */}
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-jomolhari text-center text-white mb-4 sm:mb-6 md:mb-8">
+      {/* Main Content */}
+      <div className="relative z-10 flex flex-col items-center px-4 sm:px-8 md:px-12 pt-36 sm:pt-40 md:pt-44 pb-16 w-full max-w-7xl mx-auto">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-jomolhari text-center text-white mb-8 sm:mb-10 md:mb-12">
           Your Playlists
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-gray-500 text-base sm:text-lg md:text-xl text-center max-w-xl sm:max-w-2xl md:max-w-3xl mb-8 sm:mb-10 md:mb-12">
-          Create, collect, and curate. Whether you’re chasing vibes for a late-night drive or powering through a workout, your playlists live here.
-        </p>
+        {/* Playlist Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 w-full">
+          {/* Create New Playlist Card */}
+          <div className="bg-[#0B0B0B] rounded-2xl shadow-lg p-6 flex flex-col items-center justify-center text-center border-2 border-dashed border-[#4B4A4A] cursor-pointer hover:bg-[#0B0B0B]/90 transition-transform transform hover:scale-105">
+            <span className="text-5xl font-bold text-[#4B4A4A] mb-4">+</span>
+            <h2 className="text-xl font-inder text-[#4B4A4A] mb-2">Create New Playlist</h2>
+            <p className="text-[#4B4A4A] text-sm">Start building your own custom mix.</p>
+          </div>
 
-        {/* Playlist Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-8 w-full max-w-7xl">
-          {playlists.map((playlist, idx) => (
+          {/* Existing Playlists */}
+          {playlists.map((playlist) => (
             <div
-              key={idx}
-              className="bg-[#0B0B0B] rounded-2xl p-4 sm:p-6 flex flex-col items-center text-center shadow-lg relative transform transition-transform duration-300 hover:scale-105"
+              key={playlist.id}
+              className="bg-[#0B0B0B] rounded-2xl shadow-lg p-6 flex flex-col items-center text-center hover:bg-[#0B0B0B]/90 transition-transform transform hover:scale-105 cursor-pointer"
+              onClick={() => alert(`Clicked playlist: ${playlist.name}`)}
             >
-              {/* Playlist Cover */}
-              <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl border border-purple-900 overflow-hidden mb-3 sm:mb-4">
-                <img
-                  src={playlist.image}
-                  alt={playlist.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Playlist Info */}
-              <h2 className="text-lg sm:text-xl font-inder text-white">
-                {playlist.name}
-              </h2>
-              <hr className="border-purple-900 w-32 sm:w-40 my-2 sm:my-3" />
-              <p className="text-gray-500 text-xs sm:text-sm mb-4 sm:mb-6">
-                {playlist.tracks}
-              </p>
-
-              {/* CTA Button */}
-              <button className="bg-brand text-white px-6 py-2 rounded-lg shadow-md font-inder cursor-pointer hover:bg-purple-800 transition">
-                Open Playlist
-              </button>
+              <img
+                src={playlist.image}
+                alt={playlist.name}
+                className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 object-cover rounded-xl mb-4 shadow-md"
+              />
+              <h2 className="text-xl font-inder text-white mb-2">{playlist.name}</h2>
+              <p className="text-[#4B4A4A] text-sm">{playlist.description}</p>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default Playlist;
